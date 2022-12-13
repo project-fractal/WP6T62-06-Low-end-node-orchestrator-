@@ -1,0 +1,18 @@
+FROM python:3.8-slim
+
+WORKDIR /controller
+
+RUN pip install --upgrade pip
+
+RUN pip install kopf==1.36.0
+RUN pip install pykube-ng==22.9.0
+RUN pip install azure-iot-hub==2.6.1 
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD ["kopf", "run", "controller.py"]
+
