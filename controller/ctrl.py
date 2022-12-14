@@ -7,7 +7,7 @@ from azure.iot.hub import IoTHubRegistryManager
 # local imports
 from models import LowEnd
 
-# CONNECTION_STRING = os.getenv("IOTHUB_CREDENTIALS")
+CONNECTION_STRING = os.getenv("IOTHUB_CREDENTIALS")
 
 KUBE_CONFIG = pykube.KubeConfig.from_env()
 NAMESPACE = "low-end-ctrl"
