@@ -8,6 +8,12 @@ rules:
 - apiGroups: ["fractal-cluster.eu"]
   resources: ["lowends"]
   verbs: ["*"]
+- apiGroups: [""]
+  resources: [events]
+  verbs: ["*"]
+- apiGroups: [""]
+  resources: ["namespaces"]
+  verbs: ["GET", "LIST"]
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
@@ -19,7 +25,6 @@ subjects:
 - kind: ServiceAccount
   name: low-end-operator
   namespace: low-end-ctrl
-  apiGroup: ""
 roleRef:
   kind: ClusterRole
   name: low-end-operator
