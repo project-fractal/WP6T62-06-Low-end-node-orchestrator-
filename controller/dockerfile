@@ -14,5 +14,5 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["kopf", "run", "ctrl.py"]
+CMD ["kopf", "run", "--namespace", "low-end-ctrl", "ctrl.py"]
 
