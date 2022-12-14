@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: low-end-operator
+  namespace: low-end-ctrl
+spec:
+  serviceAccountName: low-end-operator
+  containers:
+  - name: controller
+    image: 192.168.1.9:5000/k8s-low-ctl:latest
+    imagePullPolicy: Always
+    env:
+    - name: IOTHUB_CREDENTIALS
+      valueFrom:
+        secretKeyRef:
+          name: iot-hub-secret
+          key: iothubcreds
+  
